@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Card = (props) => {
-  return <button>{props.value}</button>;
+  const [text, setText] = useState('');
+  const handleClick = () => {
+    text ? setText('') : setText(props.value);
+  };
+
+  return <button onClick={() => handleClick()}>{text}</button>;
 };
 
 const Board = (props) => {
