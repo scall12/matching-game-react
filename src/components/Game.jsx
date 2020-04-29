@@ -11,11 +11,13 @@ const Card = (props) => {
 
 const PlayerInput = () => {
   return (
-    <input
-      id="player-input"
-      placeholder="Enter the number of players"
-      type="number"
-    />
+    <>
+      <label>Number of Players</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </>
   );
 };
 
@@ -64,10 +66,6 @@ const Board = (props) => {
   useEffect(() => {
     createDeck(props.n);
   }, [props]);
-
-  // useEffect(() => {
-  //   console.log(cards);
-  // }, [cards]);
 
   const renderRow = (num, deck) => {
     const arr = [];
