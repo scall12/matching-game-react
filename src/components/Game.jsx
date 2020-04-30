@@ -17,7 +17,7 @@ const Card = (props) => {
   return (
     <button
       onClick={() => {
-        props.onClick(props.value);
+        props.onClick(props.id);
         handleClick();
       }}
     >
@@ -84,12 +84,14 @@ const Board = (props) => {
     createDeck(props.n);
   }, [props.n]);
 
-  const renderRow = (num, deck) => {
+  const renderRow = (num, deck, rowNum) => {
     const arr = [];
     for (let i = 0; i < num; i++) {
+      const keyId = rowNum.toString() + i.toString();
       arr.push(
         <Card
-          key={i}
+          key={keyId}
+          id={keyId}
           value={deck[0]}
           visible={'hidden'}
           onClick={(val) => props.onClick(val)}
@@ -106,7 +108,7 @@ const Board = (props) => {
     for (let i = 0; i < num; i++) {
       arr.push(
         <div id={`row${i}`} key={`row${i}`}>
-          {renderRow(num, deck)}
+          {renderRow(num, deck, i)}
         </div>
       );
     }
