@@ -2,11 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 const Card = (props) => {
   const [text, setText] = useState('');
+  const [visible, setVisible] = useState(false);
+
   const handleClick = () => {
-    text !== '' ? setText('') : setText(props.value);
+    if (!visible) {
+      setText(props.value);
+      setVisible(true);
+    } else {
+      setText('');
+      setVisible(false);
+    }
   };
 
-  return <button onClick={() => handleClick()}>{text}</button>;
+  return (
+    <button
+      onClick={() => {
+        props.onClick(props.value);
+        handleClick();
+      }}
+    >
+      {text}
+    </button>
+  );
 };
 
 const PlayerInput = () => {
@@ -65,12 +82,19 @@ const Board = (props) => {
 
   useEffect(() => {
     createDeck(props.n);
-  }, [props]);
+  }, [props.n]);
 
   const renderRow = (num, deck) => {
     const arr = [];
     for (let i = 0; i < num; i++) {
-      arr.push(<Card key={i} value={deck[0]} />);
+      arr.push(
+        <Card
+          key={i}
+          value={deck[0]}
+          visible={'hidden'}
+          onClick={(val) => props.onClick(val)}
+        />
+      );
       deck.shift();
     }
     return arr;
@@ -94,6 +118,17 @@ const Board = (props) => {
 
 const Game = () => {
   const [size, setSize] = useState(4);
+  const [turn, setTurn] = useState({});
+
+  const handleClick = (value) => {
+    if (!turn.card1) {
+      setTurn({ ...turn, card1: value });
+    } else if (turn.card1 && !turn.card2) {
+      setTurn({ ...turn, card2: value });
+    } else {
+      setTurn({ card1: value });
+    }
+  };
 
   const changeSize = (val) => {
     setSize(val);
@@ -102,7 +137,7 @@ const Game = () => {
   return (
     <>
       <Setup changeSize={changeSize} />
-      <Board n={size} />
+      <Board n={size} onClick={(val) => handleClick(val)} />
     </>
   );
 };
