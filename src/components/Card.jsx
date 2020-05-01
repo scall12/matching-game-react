@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Card = (props) => {
   const [text, setText] = useState('');
@@ -8,10 +8,18 @@ const Card = (props) => {
     if (!visible) {
       setText(props.value);
       setVisible(true);
+    } else if (visible) {
     } else {
       setText('');
       setVisible(false);
     }
+    // if (Object.values(props.turn).includes(props.id)) {
+    //   setText(props.value);
+    //   setVisible(true);
+    // } else {
+    //   setText('');
+    //   setVisible(false);
+    // }
   };
 
   return (
