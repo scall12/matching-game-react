@@ -5,27 +5,32 @@ const Card = (props) => {
   const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
-    if (!visible) {
+    if (
+      props.val === props.turn.card1.value ||
+      props.val === props.turn.card2.value
+    ) {
       setText(props.value);
       setVisible(true);
-    } else if (visible) {
-    } else {
-      setText('');
-      setVisible(false);
     }
-    // if (Object.values(props.turn).includes(props.id)) {
-    //   setText(props.value);
-    //   setVisible(true);
-    // } else {
-    //   setText('');
-    //   setVisible(false);
-    // }
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (
+        props.val !== props.turn.card1.value &&
+        props.val !== props.turn.card2.value
+      ) {
+        setText('');
+        setVisible(false);
+      }
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [props.turn]);
 
   return (
     <button
       onClick={() => {
-        props.onClick(props.id);
+        props.onClick(props.id, props.value);
         handleClick();
       }}
     >
