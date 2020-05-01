@@ -4,6 +4,7 @@ import Card from './Card';
 
 const Board = (props) => {
   const [cards, setCards] = useState([]);
+
   const createDeck = (size) => {
     const uniqueVals = (size * size) / 2;
     const valsArr = [];
@@ -26,16 +27,18 @@ const Board = (props) => {
     createDeck(props.n);
   }, [props.n]);
 
+  useEffect(() => {}, [props.turn]);
+
   const renderRow = (num, deck, rowNum) => {
     const arr = [];
     for (let i = 0; i < num; i++) {
-      const keyId = rowNum.toString() + i.toString();
+      const keyId = `${rowNum}${i}`;
       arr.push(
         <Card
           key={keyId}
           id={keyId}
           value={deck[0]}
-          visible={'hidden'}
+          turn={props.turn}
           onClick={(val) => props.onClick(val)}
         />
       );
