@@ -27,8 +27,6 @@ const Board = (props) => {
     createDeck(props.n);
   }, [props.n]);
 
-  useEffect(() => {}, [props.turn]);
-
   const renderRow = (num, deck, rowNum) => {
     const arr = [];
     for (let i = 0; i < num; i++) {
@@ -39,7 +37,7 @@ const Board = (props) => {
           id={keyId}
           value={deck[0]}
           turn={props.turn}
-          onClick={(val) => props.onClick(val)}
+          onClick={props.onClick}
         />
       );
       deck.shift();
