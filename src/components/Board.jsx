@@ -37,6 +37,7 @@ const Board = (props) => {
           id={keyId}
           value={deck[0]}
           turn={props.turn}
+          matchList={props.matchList}
           onClick={props.onClick}
         />
       );

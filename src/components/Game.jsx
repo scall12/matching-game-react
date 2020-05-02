@@ -6,6 +6,7 @@ import Setup from './Setup';
 const Game = () => {
   const [size, setSize] = useState(4);
   const [turn, setTurn] = useState({ card1: {}, card2: {} });
+  const [matchList, setMatchList] = useState([]);
 
   const handleClick = (id, value) => {
     if (!turn.card1.id) {
@@ -20,7 +21,7 @@ const Game = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (turn.card1.value === turn.card2.value && turn.card1.value) {
-        console.log('MATCH');
+        setMatchList([...matchList, turn.card1.id, turn.card2.id]);
         setTurn({ card1: {}, card2: {} });
       } else if (turn.card1.value !== turn.card2.value && turn.card2.value) {
         console.log('NO WAY');
@@ -38,7 +39,7 @@ const Game = () => {
   return (
     <>
       <Setup changeSize={changeSize} />
-      <Board n={size} onClick={handleClick} turn={turn} />
+      <Board n={size} onClick={handleClick} turn={turn} matchList={matchList} />
     </>
   );
 };
