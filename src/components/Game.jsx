@@ -27,7 +27,7 @@ const Game = () => {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [turn]);
+  }, [turn, matchList]);
 
   useEffect(() => {
     if (size * size === matchList.length) {
