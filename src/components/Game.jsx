@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Board from './Board';
-import Setup from './Setup';
+import Size from './Size';
 
 const Game = () => {
   const [size, setSize] = useState(4);
@@ -43,7 +43,7 @@ const Game = () => {
 
   return (
     <>
-      <Setup changeSize={changeSize} />
+      <Size changeSize={changeSize} />
       <Board n={size} onClick={handleClick} turn={turn} matchList={matchList} />
     </>
   );
