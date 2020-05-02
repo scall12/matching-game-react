@@ -20,17 +20,22 @@ const Game = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (turn.card1.value === turn.card2.value && turn.card1.value) {
+      if (turn.card1.value === turn.card2.value && turn.card1.id) {
         setMatchList([...matchList, turn.card1.id, turn.card2.id]);
         setTurn({ card1: {}, card2: {} });
-      } else if (turn.card1.value !== turn.card2.value && turn.card2.value) {
-        console.log('NO WAY');
+      } else if (turn.card1.value !== turn.card2.value && turn.card2.id) {
         setTurn({ card1: {}, card2: {} });
       }
     }, 500);
 
     return () => clearTimeout(timeout);
   }, [turn]);
+
+  useEffect(() => {
+    if (size * size === matchList.length) {
+      console.log('WIN!');
+    }
+  }, [size, matchList]);
 
   const changeSize = (val) => {
     setSize(val);
