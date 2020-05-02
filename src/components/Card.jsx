@@ -25,7 +25,7 @@ const Card = (props) => {
       }
     }, 500);
     return () => clearTimeout(timeout);
-  }, [props.turn, props.matchList, props.id]);
+  }, [props.turn, props.matchList, props.id, props.val]);
 
   return (
     <button

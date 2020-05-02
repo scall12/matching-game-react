@@ -13,8 +13,6 @@ const Game = () => {
       setTurn({ ...turn, card1: { id, value } });
     } else if (!turn.card2.id && turn.card1.id !== id) {
       setTurn({ ...turn, card2: { id, value } });
-    } else if (turn.card1.id && turn.card2.id) {
-      setTurn({ card1: {}, card2: {} });
     }
   };
 
