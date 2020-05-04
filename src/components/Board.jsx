@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import Card from './Card';
+import { createDeck } from '../helpers';
 
 const Board = (props) => {
-  const [cards, setCards] = useState([]);
-
-  const createDeck = (size) => {
-    const uniqueVals = (size * size) / 2;
-    const valsArr = [];
-    for (let i = 0; i < uniqueVals; i++) {
-      valsArr.push(i);
-      valsArr.push(i);
-    }
-    for (let card of valsArr) {
-      const a = valsArr.indexOf(card);
-      const b = valsArr[Math.floor(Math.random() * valsArr.length)];
-
-      let tempVal = card;
-      valsArr[a] = valsArr[b];
-      valsArr[b] = tempVal;
-    }
-    setCards(valsArr);
-  };
+  const { setCards } = props;
 
   useEffect(() => {
-    createDeck(props.n);
-  }, [props.n]);
+    setCards(createDeck(props.size));
+  }, [props.size, setCards]);
 
   const renderRow = (num, deck, rowNum) => {
     const arr = [];
@@ -39,6 +22,8 @@ const Board = (props) => {
           turn={props.turn}
           matchList={props.matchList}
           onClick={props.onClick}
+          cards={props.cards}
+          size={props.size}
         />
       );
       deck.shift();
@@ -59,7 +44,7 @@ const Board = (props) => {
     return arr;
   };
 
-  return <div>{renderBoard(props.n, cards)}</div>;
+  return <div id="board">{renderBoard(props.size, props.cards)}</div>;
 };
 
 export default Board;

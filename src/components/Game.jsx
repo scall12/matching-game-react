@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Board from './Board';
 import Size from './Size';
 import Reset from './Reset';
+import { createDeck } from '../helpers';
 
 const Game = () => {
   const [size, setSize] = useState(4);
   const [turn, setTurn] = useState({ card1: {}, card2: {} });
   const [matchList, setMatchList] = useState([]);
+  const [cards, setCards] = useState([]);
 
   const handleClick = (id, value) => {
     if (!turn.card1.id) {
@@ -43,13 +45,21 @@ const Game = () => {
   const reset = () => {
     setMatchList([]);
     setTurn({ card1: {}, card2: {} });
+    setCards(createDeck(size));
   };
 
   return (
     <>
       <Size changeSize={changeSize} />
-      <Reset onClick={reset} />
-      <Board n={size} onClick={handleClick} turn={turn} matchList={matchList} />
+      <Reset onClick={reset} size={size} />
+      <Board
+        size={size}
+        onClick={handleClick}
+        turn={turn}
+        matchList={matchList}
+        cards={cards}
+        setCards={setCards}
+      />
     </>
   );
 };
