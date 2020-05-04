@@ -22,6 +22,8 @@ const Card = (props) => {
         props.val !== props.turn.card2.value
       ) {
         setText('');
+      } else if (!props.matchList.includes(props.id)) {
+        setVisible('visible');
       }
     }, 500);
     return () => clearTimeout(timeout);

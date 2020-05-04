@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Board from './Board';
 import Size from './Size';
+import Reset from './Reset';
 
 const Game = () => {
   const [size, setSize] = useState(4);
@@ -39,9 +40,15 @@ const Game = () => {
     setSize(val);
   };
 
+  const reset = () => {
+    setMatchList([]);
+    setTurn({ card1: {}, card2: {} });
+  };
+
   return (
     <>
       <Size changeSize={changeSize} />
+      <Reset onClick={reset} />
       <Board n={size} onClick={handleClick} turn={turn} matchList={matchList} />
     </>
   );
