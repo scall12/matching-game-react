@@ -29,6 +29,10 @@ const Card = (props) => {
     return () => clearTimeout(timeout);
   }, [props.turn, props.matchList, props.id, props.val]);
 
+  useEffect(() => {
+    setText('');
+  }, []);
+
   return (
     <button
       onClick={() => {
