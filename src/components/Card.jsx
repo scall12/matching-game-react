@@ -31,7 +31,7 @@ const Card = (props) => {
 
   useEffect(() => {
     setText('');
-  }, []);
+  }, [props.size, props.cards]);
 
   return (
     <button
