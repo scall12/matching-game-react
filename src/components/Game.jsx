@@ -40,6 +40,7 @@ const Game = () => {
 
   const changeSize = (val) => {
     setSize(val);
+    reset();
   };
 
   const reset = () => {
