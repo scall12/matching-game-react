@@ -39,7 +39,7 @@ const Card = (props) => {
         props.onClick(props.id, props.value);
         handleClick();
       }}
-      className={visible.toString() + ' ' + text.toString()}
+      className={`${visible} ${text}`}
     >
       {props.value}
     </button>

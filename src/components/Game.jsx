@@ -4,6 +4,7 @@ import Board from './Board';
 import Size from './Size';
 import Reset from './Reset';
 import Move from './Move';
+import Timer from './Timer';
 import { createDeck } from '../helpers';
 
 const Game = () => {
@@ -12,8 +13,11 @@ const Game = () => {
   const [matchList, setMatchList] = useState([]);
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
+  const [time, setTime] = useState(40);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = (id, value) => {
+    setIsActive(true);
     if (!turn.card1.id) {
       setTurn({ ...turn, card1: { id, value } });
     } else if (!turn.card2.id && turn.card1.id !== id) {
@@ -34,30 +38,46 @@ const Game = () => {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [turn, matchList]);
+  }, [turn, matchList, moves]);
 
   useEffect(() => {
     if (size * size === matchList.length) {
       console.log('WIN!');
+      setIsActive(false);
     }
   }, [size, matchList]);
 
+  useEffect(() => {
+    let timer;
+    if (isActive) {
+      timer = setInterval(() => {
+        setTime(() => time - 1);
+      }, 1000);
+    } else if (time === 0 || !isActive) {
+      clearInterval(timer);
+    }
+    return () => clearInterval(timer);
+  }, [time, isActive]);
+
   const changeSize = (val) => {
     setSize(val);
-    reset();
+    reset(val);
   };
 
-  const reset = () => {
+  const reset = (val) => {
     setMatchList([]);
     setTurn({ card1: {}, card2: {} });
-    setCards(createDeck(size));
+    setCards(createDeck(val));
     setMoves(0);
+    setTime(val * 10);
+    setIsActive(false);
   };
 
   return (
     <>
       <Size changeSize={changeSize} />
       <Reset onClick={reset} size={size} />
+      <Timer time={time} />
       <Move moves={moves} />
       <Board
         size={size}
