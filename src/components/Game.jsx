@@ -5,7 +5,7 @@ import Size from './Size';
 import Reset from './Reset';
 import Move from './Move';
 import Timer from './Timer';
-import { createDeck } from '../helpers';
+import { createDeck, timeObject } from '../helpers';
 
 const Game = () => {
   const [size, setSize] = useState(4);
@@ -13,7 +13,7 @@ const Game = () => {
   const [matchList, setMatchList] = useState([]);
   const [cards, setCards] = useState([]);
   const [moves, setMoves] = useState(0);
-  const [time, setTime] = useState(40);
+  const [time, setTime] = useState(timeObject[size]);
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = (id, value) => {
@@ -49,11 +49,15 @@ const Game = () => {
 
   useEffect(() => {
     let timer;
-    if (isActive) {
+    if (isActive && time > 0) {
       timer = setInterval(() => {
         setTime(() => time - 1);
       }, 1000);
-    } else if (time === 0 || !isActive) {
+    } else if (time <= 0 && isActive) {
+      clearInterval(timer);
+      setIsActive(false);
+      console.log('LOSER!');
+    } else if (!isActive) {
       clearInterval(timer);
     }
     return () => clearInterval(timer);
@@ -69,7 +73,7 @@ const Game = () => {
     setTurn({ card1: {}, card2: {} });
     setCards(createDeck(val));
     setMoves(0);
-    setTime(val * 10);
+    setTime(timeObject[val]);
     setIsActive(false);
   };
 

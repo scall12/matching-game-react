@@ -1,4 +1,4 @@
-- Add timer
-- Add lose condition if matchList !== size^2 when timer runs out
++ Add timer
++ Add lose condition if matchList !== size^2 when timer runs out
 - Make it pretty
 + Add moves counter

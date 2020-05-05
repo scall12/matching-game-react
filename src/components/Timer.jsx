@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Timer = (props) => {
   return <div>{props.time}</div>;
