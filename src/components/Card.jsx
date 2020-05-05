@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Card = (props) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('hide-text');
   const [visible, setVisible] = useState('visible');
 
   const handleClick = () => {
@@ -9,7 +9,7 @@ const Card = (props) => {
       props.val === props.turn.card1.value ||
       props.val === props.turn.card2.value
     ) {
-      setText(props.value);
+      setText('show-text');
     }
   };
 
@@ -21,7 +21,7 @@ const Card = (props) => {
         props.val !== props.turn.card1.value &&
         props.val !== props.turn.card2.value
       ) {
-        setText('');
+        setText('hide-text');
       } else if (!props.matchList.includes(props.id)) {
         setVisible('visible');
       }
@@ -30,7 +30,7 @@ const Card = (props) => {
   }, [props.turn, props.matchList, props.id, props.val]);
 
   useEffect(() => {
-    setText('');
+    setText('hide-text');
   }, [props.size, props.cards]);
 
   return (
@@ -39,9 +39,9 @@ const Card = (props) => {
         props.onClick(props.id, props.value);
         handleClick();
       }}
-      className={visible}
+      className={visible.toString() + ' ' + text.toString()}
     >
-      {text}
+      {props.value}
     </button>
   );
 };
