@@ -16,4 +16,12 @@ const createDeck = (size) => {
   return valsArr;
 };
 
-export { createDeck };
+const timeObject = {
+  '2': 5,
+  '4': 30,
+  '6': 100,
+  '8': 200,
+  '10': 400,
+};
+
+export { createDeck, timeObject };
