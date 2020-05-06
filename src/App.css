@@ -57,7 +57,7 @@ body {
 }
 
 .container button {
-  width: min-content;
+  width: max-content;
 }
 
 #win {
