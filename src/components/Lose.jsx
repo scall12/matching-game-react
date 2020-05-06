@@ -8,7 +8,7 @@ const Lose = ({ moves, onClick, size }) => {
       <div>
         <span>You lost after {moves} moves.</span>
       </div>
-      <Reset onClick={onClick} size={size} />
+      <Reset onClick={onClick} size={size} message={'Play Again'} />
     </div>
   );
 };

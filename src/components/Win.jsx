@@ -12,7 +12,7 @@ const Win = ({ moves, size, time, onClick }) => {
       <div>
         <span>And it only took you {timeObject[size] - time} seconds.</span>
       </div>
-      <Reset onClick={onClick} size={size} />
+      <Reset onClick={onClick} size={size} message={'Play Again'} />
     </div>
   );
 };

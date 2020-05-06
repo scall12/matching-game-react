@@ -10,7 +10,7 @@ const Setup = ({ changeSize, onClick, size, time, moves }) => {
     <div id="setup">
       <h1>Matching Game</h1>
       <Size changeSize={changeSize} />
-      <Reset onClick={onClick} size={size} />
+      <Reset onClick={onClick} size={size} message={'Reset'} />
       <Timer time={time} />
       <Move moves={moves} />
     </div>

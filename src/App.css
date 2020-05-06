@@ -19,7 +19,7 @@ input {
 }
 
 body {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 #board button {
@@ -44,7 +44,7 @@ body {
   height: 35vh;
   margin: auto;
   z-index: 10;
-  top: 1vh;
+  top: 3rem;
   left: 10vw;
   position: absolute;
   border: 1px solid red;
