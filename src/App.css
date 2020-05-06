@@ -47,8 +47,6 @@ body {
   top: 3rem;
   left: 10vw;
   position: absolute;
-  border: 1px solid red;
-  border-radius: 0.5rem;
 
   display: flex;
   flex-direction: column;
@@ -62,10 +60,12 @@ body {
 
 #win {
   background-color: green;
+  border-radius: 0.5rem;
 }
 
 #lose {
   background-color: red;
+  border-radius: 0.5rem;
 }
 
 #root {
