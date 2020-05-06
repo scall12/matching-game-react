@@ -35,6 +35,23 @@ input {
   outline: none;
 }
 
+.container {
+  width: 100vw;
+  height: 40vh;
+  margin: auto;
+  z-index: 10;
+  top: 0px;
+  position: absolute;
+}
+
+#win {
+  background-color: green;
+}
+
+#lose {
+  background-color: red;
+}
+
 #root {
   text-align: center;
 }
