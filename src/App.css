@@ -18,6 +18,10 @@ input {
   width: 10rem;
 }
 
+body {
+  margin-top: 5rem;
+}
+
 #board button {
   width: 3rem;
   height: 3rem;
@@ -36,12 +40,15 @@ input {
 }
 
 .container {
-  width: 100vw;
-  height: 40vh;
+  width: 80vw;
+  height: 35vh;
   margin: auto;
   z-index: 10;
-  top: 0px;
+  top: 1vh;
+  left: 10vw;
   position: absolute;
+  border: 1px solid red;
+  border-radius: 0.5rem;
 
   display: flex;
   flex-direction: column;
