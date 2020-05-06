@@ -102,7 +102,6 @@ const Game = () => {
         moves={moves}
         size={size}
         onClick={reset}
-        size={size}
       />
     </>
   );
