@@ -2,13 +2,13 @@ import React from 'react';
 
 import Reset from './Reset';
 
-const Lose = (props) => {
+const Lose = ({ moves, onClick, size }) => {
   return (
-    <div id="container">
+    <div class="container" id="lose">
       <div>
-        <span>You lost after {props.moves} moves.</span>
+        <span>You lost after {moves} moves.</span>
       </div>
-      <Reset />
+      <Reset onClick={onClick} size={size} />
     </div>
   );
 };

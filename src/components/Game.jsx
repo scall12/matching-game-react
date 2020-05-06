@@ -96,7 +96,14 @@ const Game = () => {
         cards={cards}
         setCards={setCards}
       />
-      <Result result={result} time={time} moves={moves} size={size} />
+      <Result
+        result={result}
+        time={time}
+        moves={moves}
+        size={size}
+        onClick={reset}
+        size={size}
+      />
     </>
   );
 };

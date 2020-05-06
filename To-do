@@ -2,5 +2,5 @@
 + Add lose condition if matchList !== size^2 when timer runs out
 - Make it pretty
 + Add moves counter
-- Display Win message
-- Display Lose message
++ Display Win message
++ Display Lose message
