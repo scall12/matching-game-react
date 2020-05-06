@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import Board from './Board';
-import Size from './Size';
-import Reset from './Reset';
-import Move from './Move';
-import Timer from './Timer';
 import Result from './Result';
 import { createDeck, timeObject } from '../helpers';
+import Setup from './Setup';
 
 const Game = () => {
   const [size, setSize] = useState(4);
@@ -84,10 +81,13 @@ const Game = () => {
 
   return (
     <>
-      <Size changeSize={changeSize} />
-      <Reset onClick={reset} size={size} />
-      <Timer time={time} />
-      <Move moves={moves} />
+      <Setup
+        changeSize={changeSize}
+        moves={moves}
+        size={size}
+        time={time}
+        onClick={reset}
+      />
       <Board
         size={size}
         onClick={handleClick}
