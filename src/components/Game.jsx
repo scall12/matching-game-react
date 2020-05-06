@@ -5,6 +5,7 @@ import Size from './Size';
 import Reset from './Reset';
 import Move from './Move';
 import Timer from './Timer';
+import Result from './Result';
 import { createDeck, timeObject } from '../helpers';
 
 const Game = () => {
@@ -15,6 +16,7 @@ const Game = () => {
   const [moves, setMoves] = useState(0);
   const [time, setTime] = useState(timeObject[size]);
   const [isActive, setIsActive] = useState(false);
+  const [result, setResult] = useState('');
 
   const handleClick = (id, value) => {
     setIsActive(true);
@@ -43,6 +45,7 @@ const Game = () => {
   useEffect(() => {
     if (size * size === matchList.length) {
       console.log('WIN!');
+      setResult('win');
       setIsActive(false);
     }
   }, [size, matchList]);
@@ -56,6 +59,7 @@ const Game = () => {
     } else if (time <= 0 && isActive) {
       clearInterval(timer);
       setIsActive(false);
+      setResult('lose');
       console.log('LOSER!');
     } else if (!isActive) {
       clearInterval(timer);
@@ -75,6 +79,7 @@ const Game = () => {
     setMoves(0);
     setTime(timeObject[val]);
     setIsActive(false);
+    setResult('');
   };
 
   return (
@@ -91,6 +96,7 @@ const Game = () => {
         cards={cards}
         setCards={setCards}
       />
+      <Result result={result} time={time} moves={moves} size={size} />
     </>
   );
 };
