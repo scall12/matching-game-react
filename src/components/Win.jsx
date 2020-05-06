@@ -5,7 +5,7 @@ import { timeObject } from '../helpers';
 
 const Win = ({ moves, size, time, onClick }) => {
   return (
-    <div class="container" id="win">
+    <div className="container" id="win">
       <div>
         <span>You won in {moves} moves.</span>
       </div>

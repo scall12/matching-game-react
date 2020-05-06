@@ -4,7 +4,7 @@ import Reset from './Reset';
 
 const Lose = ({ moves, onClick, size }) => {
   return (
-    <div class="container" id="lose">
+    <div className="container" id="lose">
       <div>
         <span>You lost after {moves} moves.</span>
       </div>
