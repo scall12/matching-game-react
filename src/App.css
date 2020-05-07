@@ -52,12 +52,12 @@ p {
 }
 
 .container {
-  width: 80vw;
-  height: 35vh;
+  width: 30vw;
+  height: 20vh;
   margin: auto;
   z-index: 10;
-  top: 3rem;
-  left: 10vw;
+  top: 10rem;
+  left: 35vw;
   position: absolute;
 
   display: flex;
