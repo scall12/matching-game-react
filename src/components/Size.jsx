@@ -5,7 +5,7 @@ const Size = (props) => {
     <>
       <input
         id="size-input"
-        placeholder="Enter the number of columns"
+        placeholder="Size of Board (4)"
         type="number"
         max="10"
         min="2"
