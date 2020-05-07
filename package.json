@@ -2,7 +2,7 @@
   "name": "matching-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://scall12.github.io/matching-game-react",
+  "homepage": "https://scall12.github.io/matching-game-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
