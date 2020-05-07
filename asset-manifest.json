@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/matching-game-react/static/css/main.7cd8743f.chunk.css",
+    "main.js": "/matching-game-react/static/js/main.f82d8da4.chunk.js",
+    "main.js.map": "/matching-game-react/static/js/main.f82d8da4.chunk.js.map",
+    "runtime-main.js": "/matching-game-react/static/js/runtime-main.7ee8b9f3.js",
+    "runtime-main.js.map": "/matching-game-react/static/js/runtime-main.7ee8b9f3.js.map",
+    "static/js/2.c9fa0407.chunk.js": "/matching-game-react/static/js/2.c9fa0407.chunk.js",
+    "static/js/2.c9fa0407.chunk.js.map": "/matching-game-react/static/js/2.c9fa0407.chunk.js.map",
+    "index.html": "/matching-game-react/index.html",
+    "precache-manifest.2051f5337d896735bbcc2a6a67495235.js": "/matching-game-react/precache-manifest.2051f5337d896735bbcc2a6a67495235.js",
+    "service-worker.js": "/matching-game-react/service-worker.js",
+    "static/css/main.7cd8743f.chunk.css.map": "/matching-game-react/static/css/main.7cd8743f.chunk.css.map",
+    "static/js/2.c9fa0407.chunk.js.LICENSE.txt": "/matching-game-react/static/js/2.c9fa0407.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ee8b9f3.js",
+    "static/js/2.c9fa0407.chunk.js",
+    "static/css/main.7cd8743f.chunk.css",
+    "static/js/main.f82d8da4.chunk.js"
+  ]
+}
