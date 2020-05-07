@@ -14,7 +14,7 @@ const Timer = ({ time }) => {
   }
 
   return (
-    <div>
+    <div id="timer">
       {minutes}:{sec || seconds} Left
     </div>
   );

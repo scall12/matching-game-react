@@ -16,10 +16,22 @@
 
 input {
   width: 10rem;
+  margin: 5px;
 }
 
-body {
-  margin-top: 3rem;
+h1 {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 5px;
+}
+
+p {
+  width: 75%;
+  margin: auto;
 }
 
 #board button {
@@ -70,4 +82,15 @@ body {
 
 #root {
   text-align: center;
+}
+
+#counters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#timer,
+#moves {
+  margin: 0rem 1rem;
 }
