@@ -19,9 +19,9 @@ const createDeck = (size) => {
 const timeObject = {
   '2': 5,
   '4': 30,
-  '6': 100,
-  '8': 200,
-  '10': 400,
+  '6': 120,
+  '8': 210,
+  '10': 420,
 };
 
 export { createDeck, timeObject };
